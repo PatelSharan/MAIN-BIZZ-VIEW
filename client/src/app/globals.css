@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@plugin 'tailwind-scrollbar';
+
+
+:root {
+  --navbar-height: 3.5rem;
+}
+
+@theme {
+
+  /* Theme bg-color */
+  --color-theme-bgColor: #7d5e2e;
+
+  /* Text color which matches with theme bg-color */
+  --color-theme-text: #ffffff;
+
+
+  --color-primary-bgColor: #181a1b;
+
+  --color-website-text: #a1a1a1;
+
+
+  /* custom utility classes */
+  --text-2xs: 10px;
+
+  --font-poppins: var(--font-poppins);
+  --font-libreBaskerville: var(--font-libreBaskerville);
+}
+
+
+@layer components {
+
+  .btn-theme {
+    @apply bg-theme-bgColor text-theme-text hover:bg-theme-bgColor/90 cursor-pointer py-2 px-7 rounded-full first-letter:uppercase
+  }
+
+  .layout-container {
+    @apply max-w-[95vw] md:max-w-[90vw] lg:max-w-[80vw] mx-auto px-5
+  }
+
+  .borderColor {
+    @apply border-gray-700
+  }
+}
