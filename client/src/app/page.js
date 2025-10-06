@@ -30,7 +30,7 @@ export default function Home() {
       <section className="layout-container py-20">
         <div className="space-y-10">
           <Heading
-            desc={"Welcome To XYZ"}
+            desc={"Welcome To BizzView"}
             className={"text-center"}
           />
           <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-10">

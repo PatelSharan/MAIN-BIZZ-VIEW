@@ -16,7 +16,7 @@ export const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata = {
-  title: "Import & Export",
+  title: "BizzView",
   description: "",
 };
 

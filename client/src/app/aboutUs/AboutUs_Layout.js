@@ -9,7 +9,7 @@ const AboutUs_Layout = () => {
     >
       <HeroSection
         heading={"About Us"}
-        desc={"We Are XYZ Corp, In Bussiness Sin 1989"}
+        desc={"We Are BizzView, In Bussiness Sin 1989"}
       />
       <div className='layout-container bg-primary-bgColor/70 text-theme-text backdrop-blur-md p-5 md:p-10 rounded-xl space-y-4 '>
         <p className='text-sm'>

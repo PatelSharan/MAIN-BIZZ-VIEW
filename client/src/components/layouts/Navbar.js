@@ -42,7 +42,7 @@ const Navbar = () => {
                             setShowResMenu(false)
                         }}
                     >
-                        Xyz corp
+                        BizzView
                     </Link>
                 </div>
                 <ul className="hidden md:flex items-center gap-5">

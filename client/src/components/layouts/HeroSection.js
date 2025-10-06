@@ -10,7 +10,6 @@ const HeroSection = ({
     return (
         <section className='relative max-w-screen h-[25rem]'>
             <div className='fixed inset-0 -z-10 w-full'>
-
                 <Image
                     src={imgSrc}
                     alt="Hero"
