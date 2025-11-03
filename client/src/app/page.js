@@ -5,16 +5,9 @@ import ProductBox from "@/components/layouts/ProductBox";
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 
 
 export default function Home() {
-
-  const { ref: highlightsRef, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
 
   return (
     <>
@@ -173,7 +166,7 @@ export default function Home() {
 
 
       {/* <<=== MAIN = Highlights */}
-      <section className="py-20 bg-primary-bgColor/90" ref={highlightsRef}>
+      <section className="py-20 bg-primary-bgColor/90">
         <div className="space-y-10 layout-container text-theme-text">
           <Heading
             desc={"Highlights"}
@@ -181,26 +174,30 @@ export default function Home() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { title: "17", suffix: "+", label: "Years Of Business" },
-              { title: "100", suffix: "+", label: "Products In Range", duration: 6 },
-              { title: "70", suffix: "+", label: "Clients", duration: 4 },
-              { title: "10", label: "Awards Won" },
+              { count: "17", suffix: "+", label: "Years Of Business" },
+              { count: "100", suffix: "+", label: "Products In Range", duration: 6 },
+              { count: "70", suffix: "+", label: "Clients", duration: 4 },
+              { count: "10", label: "Awards Won" },
             ].map((item, idx) => (
               <div
                 key={idx}
                 className="p-10 space-y-3 border"
               >
-                <div className="font-semibold text-3xl text-left">
-                  {inView ? (
-                    <CountUp
-                      start={0}
-                      end={item?.title}
-                      duration={item?.duration || 2}
-                      suffix={item?.suffix}
-                    />
-                  ) : (
-                    0
-                  )}
+                <div className="font-semibold text-3xl text-left" id="counter">
+                  <CountUp
+                    start={0}
+                    end={item?.count}
+                    delay={0}
+                    suffix={item?.suffix}
+                    enableScrollSpy={true}
+                    scrollSpyOnce={true}
+                  >
+                    {({ countUpRef }) => (
+                      <div>
+                        <span ref={countUpRef}>0</span>
+                      </div>
+                    )}
+                  </CountUp>
                 </div>
                 <div>{item.label}</div>
               </div>
