@@ -1,3 +1,4 @@
+import AOSWrapper from '@/components/common/AOSWrapper'
 import HeroSection from '@/components/layouts/HeroSection'
 import ProductBox from '@/components/layouts/ProductBox'
 import TabMenu from '@/components/layouts/TabMenu'
@@ -11,34 +12,52 @@ const Products_Layout = () => {
                 imgSrc='/assets/hero12.jpg'
                 heading={"Products"}
                 desc={"Products That Fits Your Needs"}
+                data-aos="fade-up"
             />
 
-            <div className='layout-container bg-primary-bgColor/70 text-theme-text backdrop-blur-md p-5 md:p-10 rounded-xl space-y-5'>
-                <TabMenu
-                    menuItems={["All", "Spices", "Oil Seeds", "Herbs", "Pulses", "Grains", "Nuts"]}
-                />
+            <AOSWrapper>
+                <div className='layout-container bg-primary-bgColor/70 text-theme-text backdrop-blur-md p-5 md:p-10 rounded-xl space-y-5 overflow-hidden'>
+                    <TabMenu
+                        menuItems={["All", "Spices", "Oil Seeds", "Herbs", "Pulses", "Grains", "Nuts"]}
+                    />
 
-                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5'>
-                    <ProductBox
-                        desc={"Cumin Seeds\n ( Jeera )"}
-                    />
-                    <ProductBox
-                        desc={"Fennel Seeds\n ( Variyali )"}
-                    />
-                    <ProductBox
-                        desc={"Black Sesame Seeds\n ( Kala Til )"}
-                    />
-                    <ProductBox
-                        desc={"White Sesame Seeds\n ( Safed Til ) "}
-                    />
-                    <ProductBox
-                        desc={"Coriander Seeds\n ( Dhana )"}
-                    />
-                    <ProductBox
-                        desc={" psyllium husk\n ( Isabgol )"}
-                    />
+                    <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5'>
+                        {[
+                            {
+                                desc: "Cumin Seeds\n ( Jeera )",
+                            },
+                            {
+                                desc: "Fennel Seeds\n ( Variyali )",
+                            },
+                            {
+                                desc: "Black Sesame Seeds\n ( Kala Til )",
+                            },
+                            {
+                                desc: "White Sesame Seeds\n ( Safed Til ) ",
+                            },
+                            {
+                                desc: "Coriander Seeds\n ( Dhana )",
+                            },
+                            {
+                                desc: "Cumin Seeds\n ( Jeera )",
+                            },
+                            {
+                                desc: "Cumin Seeds\n ( Jeera )",
+                            },
+                            {
+                                desc: "Psyllium husk\n ( Isabgol )",
+                            }
+                        ]?.map((item, idx) => (
+                            <React.Fragment key={idx}>
+                                <ProductBox
+                                    desc={item?.desc}
+                                    data-aos={idx % 3 === 0 ? "fade-right" : idx % 3 === 1 ? "fade-up" : "fade-left"}
+                                />
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </AOSWrapper>
         </div>
     )
 }

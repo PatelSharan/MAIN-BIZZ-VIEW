@@ -5,10 +5,13 @@ const HeroSection = ({
     imgSrc = "/assets/hero5.jpg",
     heading,
     desc,
-    className
+    className,
+    ...props
 }) => {
     return (
-        <section className='relative max-w-screen h-[25rem]'>
+        <section
+            className='relative max-w-screen h-[25rem]'
+        >
             <div className='fixed inset-0 -z-10 w-full'>
                 <Image
                     src={imgSrc}
@@ -18,7 +21,10 @@ const HeroSection = ({
                     className="object-cover"
                 />
             </div>
-            <div className='absolute inset-0 space-y-3 flex flex-col items-center justify-center'>
+            <div
+                className='absolute inset-0 space-y-3 flex flex-col items-center justify-center'
+                {...props}
+            >
                 <h1 className='text-white/90 text-5xl font-bold font-libreBaskerville'>
                     {heading}
                 </h1>
