@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         <>
             <nav className={`h-14 z-50 ${showResMenu ? "sticky bg-primary-bgColor backdrop-blur-xl" : pathName === "/" ? "absolute bg-transparent" : "bg-primary-bgColor backdrop-blur-xl"} inset-0 flex items-center justify-between px-6`}>
-                <div className="text-white text-2xl cursor-pointer whitespace-nowrap font-clashDisplay">
+                <div className="text-white text-2xl cursor-pointer whitespace-nowrap font-outfit">
                     <Link
                         href={"/"}
                         onClick={() => {

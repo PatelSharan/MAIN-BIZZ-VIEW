@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <div className='bg-primary-bgColor text-theme-text py-10 px-3 text-sm space-y-10 border-t border-t-gray-700'>
-            <div className='text-center font-clashDisplay text-3xl'>
+            <div className='text-center font-outfit text-3xl'>
                 BizzView
             </div>
             <div className='flex flex-col items-center justify-center gap-10 md:gap-10'>
