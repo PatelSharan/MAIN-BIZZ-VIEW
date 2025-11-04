@@ -20,17 +20,17 @@ export default function Home() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center space-y-2 overflow-hidden">
-          <h1 className="text-white/90 text-3xl md:text-5xl text-center font-extrabold font-libreBaskerville"
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center space-y-2 overflow-hidden px-2 md:px-10">
+          <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-clashDisplay whitespace-pre-line uppercase"
             data-aos="fade-right"
           >
-            Good Product, Good Life
+            Good Product<br /> Good Life
           </h1>
           <h1
-            className="text-white/90 text-sm md:text-base text-center font-poppins"
-            data-aos="fade-left"
+            className="text-white/90 text-sm md:text-sm"
+            data-aos="fade-right"
           >
-            Your trusted partner in global trade. We deliver premium products across borders with efficiency and reliability.
+            Your trusted partner in global trade. <br /> We deliver premium products across borders with efficiency and reliability.
           </h1>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function Home() {
         <section className="layout-container py-20">
           <div className="space-y-10">
             <Heading
-              desc={"Welcome To BizzView"}
+              desc={"We Are BizzView"}
               className={"text-center"}
             />
             <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-10">

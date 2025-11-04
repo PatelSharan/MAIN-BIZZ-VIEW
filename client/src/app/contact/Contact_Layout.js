@@ -71,7 +71,7 @@ const Contact_Layout = () => {
         <div className='pb-5'>
             <HeroSection
                 imgSrc='/assets/hero-contact.jpg'
-                heading={"Contact"}
+                heading={"CONTACT"}
                 desc={"Let's Get In Touch \n Feel Free To Contact, We Would Love To Help You"}
                 data-aos="fade-up"
             />

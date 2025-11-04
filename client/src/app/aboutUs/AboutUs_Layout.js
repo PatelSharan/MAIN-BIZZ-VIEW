@@ -9,7 +9,7 @@ const AboutUs_Layout = () => {
     <div className='pb-5'
     >
       <HeroSection
-        heading={"About Us"}
+        heading={"ABOUT US"}
         desc={"We Are BizzView, In Bussiness Sin 1989"}
         data-aos="fade-up"
       />
@@ -63,7 +63,7 @@ const AboutUs_Layout = () => {
               </ul>
             </div>
           </div>
-          <div className='text-center text-2xl font-libreBaskerville'>
+          <div className='text-center text-2xl '>
             Thank You.
           </div>
         </div>

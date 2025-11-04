@@ -1,7 +1,8 @@
-import { Poppins, Libre_Baskerville, Lobster } from "next/font/google";
+import { Poppins, Outfit, Space_Grotesk, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import localFont from "next/font/local"
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -9,11 +10,22 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-export const libreBaskerville = Libre_Baskerville({
+export const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-libreBaskerville",
+  variable: "--font-outfit",
 });
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-spaceGrotesk",
+});
+
+const clashDisplay = localFont({
+  src: "./fonts/ClashDisplay-Variable.ttf",
+  variable: "--font-clashDisplay",
+})
 
 export const metadata = {
   title: "BizzView",
@@ -24,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${libreBaskerville.variable} font-poppins`}
+        className={`${poppins.variable} ${spaceGrotesk.variable} ${outfit.variable} ${clashDisplay.variable} font-spaceGrotesk`}
       >
         <Navbar />
         <div className="max-w-screen">

@@ -25,10 +25,10 @@ const HeroSection = ({
                 className='absolute inset-0 space-y-3 flex flex-col items-center justify-center'
                 {...props}
             >
-                <h1 className='text-white/90 text-5xl font-bold font-libreBaskerville'>
+                <h1 className='text-white/90 text-5xl font-bold font-clashDisplay'>
                     {heading}
                 </h1>
-                <h1 className='text-white/90 font-poppins whitespace-pre-line text-center'>
+                <h1 className='text-white/90 whitespace-pre-line text-center'>
                     {desc}
                 </h1>
             </div>

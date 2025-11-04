@@ -25,7 +25,9 @@
   --text-2xs: 10px;
 
   --font-poppins: var(--font-poppins);
-  --font-libreBaskerville: var(--font-libreBaskerville);
+  --font-spaceGrotesk: var(--font-spaceGrotesk);
+  --font-outfit: var(--font-outfit);
+  --font-clashDisplay: var(--font-clashDisplay);
 }
 
 

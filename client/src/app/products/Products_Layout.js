@@ -10,7 +10,7 @@ const Products_Layout = () => {
         <div className='pb-5'>
             <HeroSection
                 imgSrc='/assets/hero12.jpg'
-                heading={"Products"}
+                heading={"PRODUCTS"}
                 desc={"Products That Fits Your Needs"}
                 data-aos="fade-up"
             />

@@ -7,7 +7,7 @@ const Heading = ({
 }) => {
     return (
         <div
-            className={`font-bold text-3xl font-libreBaskerville ${className}`}
+            className={`font-extrabold font-clashDisplay text-4xl tracking-wide uppercase ${className}`}
             {...props}
         >
             {desc}
