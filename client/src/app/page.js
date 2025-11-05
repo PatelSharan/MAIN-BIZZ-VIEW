@@ -21,7 +21,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center space-y-2 overflow-hidden px-2 md:px-10">
-          <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-outfit whitespace-pre-line uppercase"
+          <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-oswald whitespace-pre-line uppercase"
             data-aos="fade-right"
           >
             Good Product<br /> Good Life
