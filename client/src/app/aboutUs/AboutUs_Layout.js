@@ -39,11 +39,11 @@ const AboutUs_Layout = () => {
                 desc={"Customer for us."}
                 className='font-semibold text-center text-xl'
                 data-aos="fade-right"
-                data-aos-offset="100"
+                data-aos-offset="50"
               />
               <ul className='text-sm list-disc mx-10 space-y-1'
                 data-aos="fade-left"
-                data-aos-offset="100"
+                data-aos-offset="50"
               >
                 <li>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, assumenda?

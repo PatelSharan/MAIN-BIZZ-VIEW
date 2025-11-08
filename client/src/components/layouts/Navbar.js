@@ -1,14 +1,17 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icons from "../icons/ReactIconsLib";
 import ScrollTopBtn from "../ui/ScrollTopBtn";
+import { useGeneralContext } from "@/contexts/generalContext";
 
 
 const Navbar = () => {
 
     const pathName = usePathname();
+
+    const generalContext = useGeneralContext();
 
     const [showResMenu, setShowResMenu] = useState(false);
 
@@ -31,6 +34,30 @@ const Navbar = () => {
         }
     ]
 
+    const getProducts = async () => {
+        try {
+            const res = await fetch("/api/products", {
+                method: "GET"
+            })
+            const data = await res.json();
+
+            if (data?.success) {
+                generalContext?.setProducts(data?.data)
+                localStorage.setItem("products", JSON.stringify(data?.data))
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        const lsProducts = JSON.parse(localStorage.getItem("products"))
+        if (lsProducts) {
+            generalContext?.setProducts(lsProducts);
+        }
+
+        getProducts();
+    }, [])
 
     return (
         <>
@@ -76,7 +103,7 @@ const Navbar = () => {
 
 
             {/* <<=== MAIN = Responsive Menu */}
-            <div className={`w-screen h-screen bg-primary-bgColor/90 backdrop-blur-md fixed top-[var(--navbar-height)] z-40 transition-all ease-in-out duration-300 ${showResMenu ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <div className={`w-screen h-screen bg-primary-bgColor/90 backdrop-blur-md fixed top-[var(--navbar-height)] z-40 md:hidden transition-all ease-in-out duration-300 ${showResMenu ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <ul className="flex flex-col items-center justify-center gap-7 my-10">
                     {navItem?.map((item, idx) => (
                         <li

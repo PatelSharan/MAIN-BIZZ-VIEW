@@ -2,6 +2,7 @@ import { Poppins, Space_Grotesk, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import { GeneralProvider } from "@/contexts/generalContext";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -40,11 +41,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${inter.variable} ${spaceGrotesk.variable} ${oswald.variable} font-spaceGrotesk`}
       >
-        <Navbar />
-        <div className="max-w-screen">
-          {children}
-        </div>
-        <Footer />
+        <GeneralProvider>
+          <Navbar />
+          <div className="max-w-screen">
+            {children}
+          </div>
+          <Footer />
+        </GeneralProvider>
       </body>
     </html>
   );

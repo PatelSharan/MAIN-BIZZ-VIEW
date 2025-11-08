@@ -2,6 +2,7 @@
 import AOSWrapper from "@/components/common/AOSWrapper";
 import Heading from "@/components/layouts/Heading";
 import ProductBox from "@/components/layouts/ProductBox";
+import { useGeneralContext } from "@/contexts/generalContext";
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "react-countup";
@@ -9,10 +10,12 @@ import CountUp from "react-countup";
 
 export default function Home() {
 
+  const generalContext = useGeneralContext();
+
   return (
     <>
       {/* 🌟 Hero Section */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full h-screen bg-gray-900">
         <Image
           src="/assets/hero1.jpg"
           alt="Hero"
@@ -20,18 +23,22 @@ export default function Home() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center space-y-2 overflow-hidden px-2 md:px-10">
-          <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-oswald whitespace-pre-line uppercase"
-            data-aos="fade-right"
-          >
-            Good Product<br /> Good Life
-          </h1>
-          <h1
-            className="text-white/90 text-sm md:text-sm"
-            data-aos="fade-right"
-          >
-            Your trusted partner in global trade. <br /> We deliver premium products across borders with efficiency and reliability.
-          </h1>
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center overflow-hidden px-4 md:px-10">
+          <div className="absolute bottom-10 lg:bottom-1/2 lg:translate-y-1/2 space-y-2">
+            <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-oswald whitespace-pre-line uppercase"
+              data-aos="fade-right"
+              data-aos-offset="0"
+            >
+              Good Product<br /> Good Life
+            </h1>
+            <h1
+              className="text-white/90 text-sm md:text-sm"
+              data-aos="fade-right"
+              data-aos-offset="0"
+            >
+              Your trusted partner in global trade. <br /> We deliver premium products across borders with efficiency and reliability.
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -89,25 +96,13 @@ export default function Home() {
               <div
                 className="flex items-centers overflow-x-scroll gap-7 scrollbar-none px-20" data-aos="fade-left"
               >
-                <ProductBox
-                  className={"bg-light-1 text-5xl"}
-                  desc={"Cumin Seeds\n ( Jeera )"}
-                />
-                <ProductBox
-                  desc={"Fennel Seeds\n ( Variyali )"}
-                />
-                <ProductBox
-                  desc={"Black Sesame Seeds\n ( Kala Til )"}
-                />
-                <ProductBox
-                  desc={"White Sesame Seeds\n ( Safed Til ) "}
-                />
-                <ProductBox
-                  desc={"Coriander Seeds\n ( Dhana )"}
-                />
-                <ProductBox
-                  desc={" psyllium husk\n ( Isabgol )"}
-                />
+                {generalContext?.products?.slice(0, 10)?.map((item, idx) => (
+                  <ProductBox
+                    key={idx}
+                    desc={item?.name}
+                    price={item?.price}
+                  />
+                ))}
               </div>
             </div>
 

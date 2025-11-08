@@ -2,6 +2,8 @@ import React from 'react'
 
 const TabMenu = ({
     menuItems,
+    activeItem,
+    setActiveItem,
     className
 }) => {
     return (
@@ -11,7 +13,10 @@ const TabMenu = ({
                     (item, idx) => (
                         <li
                             key={idx}
-                            className="px-4 py-1 rounded-full border borderColor text-sm cursor-pointer text-website-text hover:bg-theme-bgColor/10 hover:text-theme-bgColor transition-all duration-200 whitespace-nowrap text-center flex-1"
+                            className={`px-4 py-1 rounded-full border borderColor text-sm cursor-pointer hover:bg-theme-bgColor/10 hover:text-theme-bgColor transition-all duration-200 whitespace-nowrap text-center flex-1 ${activeItem === item ? "bg-theme-bgColor/10  text-theme-bgColor border-theme-bgColor" : "text-website-text"}`}
+                            onClick={() => {
+                                setActiveItem(item)
+                            }}
                         >
                             {item}
                         </li>

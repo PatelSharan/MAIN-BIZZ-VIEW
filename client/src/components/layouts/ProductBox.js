@@ -4,8 +4,10 @@ import React from 'react'
 const ProductBox = ({
     imgSrc = "/assets/hero3.jpg",
     desc,
+    price,
     className,
     descClassName,
+    priceClassName,
     ...props
 }) => {
     return (
@@ -21,8 +23,15 @@ const ProductBox = ({
                     className='object-cover w-full h-full'
                 />
             </div>
-            <div className={`text-sm whitespace-pre-line text-center ${descClassName}`}>
-                {desc}
+            <div className='space-y-1'>
+                <div className={`text-sm whitespace-pre-line text-center ${descClassName}`}>
+                    {desc}
+                </div>
+                {price && (
+                    <div className={`text-sm whitespace-pre-line text-center ${priceClassName}`}>
+                        ( {price} )
+                    </div>
+                )}
             </div>
         </div>
 
