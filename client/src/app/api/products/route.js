@@ -6,13 +6,17 @@ export async function GET() {
     try {
         const auth = new google.auth.GoogleAuth({
             keyFile: "bizzview-service-acc-key.json",
+            credentials: {
+                client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n")
+            },
             scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
         })
 
         const client = await auth.getClient();
         const sheets = google.sheets({ version: "v4", auth: client });
 
-        const spreadsheetId = "1u1ria0M3hOPO8a1IePpkxw1DIMth12CxINpPZn8VyU8";
+        const spreadsheetId = process.env.GOOGLE_SHEET_ID;
 
         const range = "Products!A:E";
 
