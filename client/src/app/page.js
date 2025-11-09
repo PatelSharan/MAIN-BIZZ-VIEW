@@ -24,7 +24,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center overflow-hidden px-4 md:px-10">
-          <div className="absolute bottom-10 lg:bottom-1/2 lg:translate-y-1/2 space-y-2">
+          <div className="absolute bottom-28 lg:bottom-1/2 lg:translate-y-1/2 space-y-2">
             <h1 className="text-white/90 text-5xl md:text-5xl font-extrabold font-oswald whitespace-pre-line uppercase"
               data-aos="fade-right"
               data-aos-offset="0"
@@ -169,9 +169,11 @@ export default function Home() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { count: "17", suffix: "+", label: "Years Of Business" },
-              { count: "100", suffix: "+", label: "Products In Range", duration: 6 },
+              { count: "1989", label: "Since In Business", duration: 5 },
+              { count: "30", suffix: "+", label: "Years Of Business" },
+              { count: "100", suffix: "+", label: "Products In Range", duration: 5 },
               { count: "70", suffix: "+", label: "Clients", duration: 4 },
+              { count: "100", suffix: "+", label: "Employees" },
               { count: "10", label: "Awards Won" },
             ].map((item, idx) => (
               <div
@@ -182,6 +184,7 @@ export default function Home() {
                   <CountUp
                     start={0}
                     end={item?.count}
+                    duration={item?.duration}
                     delay={0}
                     suffix={item?.suffix}
                     enableScrollSpy={true}

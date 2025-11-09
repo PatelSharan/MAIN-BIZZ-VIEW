@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import Icons from '../icons/ReactIconsLib'
 
@@ -33,7 +34,7 @@ const ScrollTopBtn = () => {
                 onClick={() => {
                     handleScrollToTop();
                 }}
-                className='btn-theme w-10 h-10 px-0 py-0 fixed bottom-2 right-2 z-50 rounded-full flex items-center justify-center shadow-sm shadow-gray-700'
+                className='border border-theme-bgColor bg-theme-bgColor text-theme-text hover:bg-transparent hover:text-theme-bgColor transition-all ease-in-out duration-300 cursor-pointer w-10 h-10 px-0 py-0 fixed bottom-2 right-2 z-50 rounded-xs flex items-center justify-center shadow-sm'
             >
                 <Icons.UpArrow size={20} />
             </button>
