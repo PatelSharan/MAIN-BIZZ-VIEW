@@ -2,70 +2,43 @@
 import AOSWrapper from '@/components/common/AOSWrapper'
 import Icons from '@/components/icons/ReactIconsLib'
 import HeroSection from '@/components/layouts/HeroSection'
-import React from 'react'
+import { useGeneralContext } from '@/contexts/generalContext'
+import React, { useEffect, useState } from 'react'
 
 const Contact_Layout = () => {
 
-    const contactInfo = [
-        {
-            icon: <Icons.Phone size={30} />,
-            title: "Phone Numbers",
-            items: [
-                {
-                    desc: "WhatsApp",
-                    value: "+91 9090909090",
-                },
-                {
-                    desc: "Sales",
-                    value: "+91 3434343434",
-                },
-                {
-                    desc: "Inquiry",
-                    value: "+91 5656565656",
-                },
-                {
-                    desc: "Shipping",
-                    value: "+91 7878787878",
-                }
-            ]
-        },
-        {
-            icon: <Icons.Email size={30} />,
-            title: "Emails",
-            items: [
-                {
-                    desc: "Sales",
-                    value: "example@sales.com",
-                },
-                {
-                    desc: "Docs",
-                    value: "example@docs.com",
-                },
-                {
-                    desc: "Inquiry",
-                    value: "example@inquiry.com",
-                },
-                {
-                    desc: "Shipping",
-                    value: "example@shipping.com",
-                }
-            ]
-        },
-        {
-            icon: <Icons.Location size={30} />,
-            title: "Locations",
-            items: [
-                {
-                    desc: "Office",
-                    value: "Example Address, \n Building-2, near xyz garden, \n 800880, state",
-                },
-                {
-                    desc: "Factory",
-                    value: "Example Address, \n Building-2, near xyz garden, \n 800880, state",
-                }
-            ]
-        },
-    ]
+    const generalContext = useGeneralContext();
+
+    const [contacts, setContacts] = useState([]);
+
+
+    useEffect(() => {
+        if (!generalContext?.contacts?.length) return;
+
+        const updatedContacts = generalContext?.contacts?.map((item) => {
+            let icon;
+            if (item?.category === "Owner") {
+                icon = <Icons.User size={20} />
+            }
+            else if (item?.category === "Phone numbers") {
+                icon = <Icons.Phone size={20} />
+            }
+            else if (item?.category === "Emails") {
+                icon = <Icons.Email size={20} />
+            }
+            else if (item?.category === "Locations") {
+                icon = <Icons.Location size={20} />
+            }
+
+            return {
+                icon: icon,
+                ...item
+            }
+        })
+
+        setContacts(updatedContacts);
+    }, [generalContext?.contacts])
+
 
     return (
         <div className='pb-5'>
@@ -77,7 +50,7 @@ const Contact_Layout = () => {
             />
             <AOSWrapper>
                 <div className='layout-container bg-primary-bgColor/70 text-theme-text backdrop-blur-md p-5 md:p-10 rounded-xl space-y-4 overflow-hidden'>
-                    {contactInfo?.map((info, idx) => (
+                    {contacts?.map((info, idx) => (
                         <div
                             key={idx}
                             className='space-y-3'
@@ -93,7 +66,7 @@ const Contact_Layout = () => {
                                     {info?.icon}
                                 </div>
                                 <div className='font-semibold text-sm'>
-                                    {info?.title}
+                                    {info?.category}
                                 </div>
                             </div>
                             <div>
@@ -106,7 +79,7 @@ const Contact_Layout = () => {
                                             className='min-w-16'
                                             data-aos="fade-right"
                                         >
-                                            {item?.desc}
+                                            {item?.title}
                                         </div>
                                         <div
                                             className="flex-1 border-t border-gray-400 mx-3"

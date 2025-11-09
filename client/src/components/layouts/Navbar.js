@@ -50,13 +50,35 @@ const Navbar = () => {
         }
     }
 
+    const getContacts = async () => {
+        try {
+            const res = await fetch("/api/contacts", {
+                method: "GET"
+            })
+            const data = await res.json();
+
+            if (data?.success) {
+                generalContext?.setContacts(data?.data)
+                localStorage.setItem("contacts", JSON.stringify(data?.data))
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
         const lsProducts = JSON.parse(localStorage.getItem("products"))
         if (lsProducts) {
             generalContext?.setProducts(lsProducts);
         }
 
+        const lsContacts = JSON.parse(localStorage.getItem("contacts"));
+        if (lsContacts) {
+            generalContext?.setContacts(lsContacts);
+        }
+
         getProducts();
+        getContacts();
     }, [])
 
     return (

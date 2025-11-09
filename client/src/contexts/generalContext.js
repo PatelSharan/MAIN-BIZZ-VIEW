@@ -12,11 +12,14 @@ export const useGeneralContext = () => {
 export const GeneralProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
+    const [contacts, setContacts] = useState([]);
 
     return (
         <GeneralContext.Provider value={{
             products,
-            setProducts
+            setProducts,
+            contacts,
+            setContacts
         }}>
             {children}
         </GeneralContext.Provider>
