@@ -60,7 +60,7 @@ export default function Home() {
                   width={450}
                   height={500}
                   alt="WelcomgImg"
-                  className="rounded-3xl"
+                  className="rounded-xl"
                 />
               </div>
               <p
@@ -136,7 +136,7 @@ export default function Home() {
                   width={450}
                   height={500}
                   alt="WelcomgImg"
-                  className="rounded-3xl"
+                  className="rounded-xl"
                 />
               </div>
               <div className="flex-1">
@@ -178,7 +178,7 @@ export default function Home() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-10 space-y-3 border"
+                className="p-10 space-y-3 border-[1.5px] border-website-text hover:border-theme-bgColor transition-all duration-300 ease-in-out"
               >
                 <div className="font-semibold text-3xl text-left" id="counter">
                   <CountUp
